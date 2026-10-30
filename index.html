@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Kaushalendra Singh - Aspiring Cloud Engineer">
+
+    <title>Kaushalendra Singh | Cloud Engineer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #030b16;
+            --card: #081a2d;
+            --blue: #08b9ff;
+            --text: #edf7ff;
+            --muted: #a8bdd1;
+            --border: rgba(8, 185, 255, 0.35);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            background: rgba(3, 11, 22, 0.96);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            min-height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span,
+        .blue {
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        /* HERO */
+
+        .hero {
+            padding: 85px 0;
+            border-bottom: 1px solid var(--border);
+            background:
+                radial-gradient(
+                    circle at 80% 40%,
+                    rgba(0, 115, 255, 0.13),
+                    transparent 35%
+                );
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .eyebrow {
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.15;
+            margin: 15px 0;
+        }
+
+        .hero h2 {
+            color: #c8eaff;
+            font-size: 23px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: var(--muted);
+            max-width: 580px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--blue);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: #00111e;
+        }
+
+        .btn-secondary {
+            color: var(--blue);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(8, 185, 255, 0.25);
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            margin-top: 25px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .social-links a:hover {
+            color: var(--blue);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 280px;
+        }
+
+        .cloud-card {
+            width: 270px;
+            height: 270px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(
+                circle,
+                #103b63,
+                #061426 70%
+            );
+            box-shadow:
+                0 0 35px rgba(0, 150, 255, 0.18),
+                inset 0 0 30px rgba(0, 150, 255, 0.12);
+        }
+
+        .cloud-icon {
+            font-size: 65px;
+        }
+
+        .cloud-card h3 {
+            color: var(--blue);
+            font-size: 27px;
+            letter-spacing: 3px;
+        }
+
+        .cloud-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* COMMON SECTIONS */
+
+        section:not(.hero) {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .section-title span {
+            color: var(--blue);
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            margin-top: 8px;
+            background: var(--blue);
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .about-text {
+            color: var(--muted);
+        }
+
+        .about-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .about-card h3 {
+            color: var(--blue);
+            margin-bottom: 10px;
+        }
+
+        .about-card p {
+            color: var(--muted);
+        }
+
+        .facts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .fact {
+            border-left: 2px solid var(--blue);
+            padding-left: 12px;
+        }
+
+        .fact strong {
+            display: block;
+        }
+
+        .fact small {
+            color: var(--muted);
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 17px;
+        }
+
+        .skill-card {
+            background: linear-gradient(145deg, #0b2036, #061322);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover,
+        .project-card:hover,
+        .learning-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+        }
+
+        .skill-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* CURRENTLY LEARNING */
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+        }
+
+        .learning-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            transition: 0.3s;
+        }
+
+        .learning-card h3 {
+            font-size: 15px;
+            margin: 8px 0;
+        }
+
+        .learning-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* PROJECTS */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            padding: 23px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: 0.3s;
+        }
+
+        .project-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            color: #bceaff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3px 9px;
+            font-size: 12px;
+        }
+
+        .project-link {
+            color: var(--blue);
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: auto;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 30px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-links a {
+            color: #c6eaff;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-links a:hover {
+            color: var(--blue);
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 23px 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer span {
+            color: var(--blue);
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                min-height: 250px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .learning-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 15px 0;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 55px 0;
+            }
+
+            .skills-grid,
+            .learning-grid,
+            .projects-grid,
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+
+            section:not(.hero) {
+                padding: 50px 0;
+            }
+
+            .cloud-card {
+                width: 230px;
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">
+                Kaushalendra <span>Singh</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#learning">Learning</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+
+                <div>
+                    <p class="eyebrow">Cloud · Linux · Automation</p>
+
+                    <h1>
+                        Hello, I'm<br>
+                        Kaushalendra <span class="blue">Singh</span>
+                    </h1>
+
+                    <h2>Aspiring Cloud Engineer</h2>
+
+                    <p class="description">
+                        I'm a B.Tech CSE student passionate about cloud
+                        computing, Linux, and building practical solutions.
+                        I enjoy learning new technologies, solving problems,
+                        and turning concepts into hands-on projects.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            Explore My Projects →
+                        </a>
+
+                        <a href="mailto:skkaushalendra911@gmail.com"
+                           class="btn btn-secondary">
+                            Contact Me ↗
+                        </a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/sksingh001-git"
+                           target="_blank" rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/kaushalendra-singh-600680360/"
+                           target="_blank" rel="noopener noreferrer">
+                            LinkedIn ↗
+                        </a>
+
+                        <a href="mailto:skkaushalendra911@gmail.com">
+                            Email ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="cloud-card">
+                        <div class="cloud-icon">☁️</div>
+                        <h3>CLOUD</h3>
+                        <p>Learn · Build · Deploy</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+
+        <section id="about">
+            <div class="container about-grid">
+
+                <div>
+                    <h2 class="section-title">
+                        About <span>Me</span>
+                    </h2>
+
+                    <p class="about-text">
+                        I'm Kaushalendra Singh, a Computer Science
+                        engineering student at ITM GIDA, Gorakhpur.
+                        I'm focused on developing my skills in AWS,
+                        Linux, networking, and cloud deployment.
+                        I prefer learning through practice—building
+                        projects, troubleshooting issues, and documenting
+                        what I learn.
+                    </p>
+
+                    <div class="facts">
+                        <div class="fact">
+                            <strong>B.Tech CSE</strong>
+                            <small>ITM GIDA, Gorakhpur</small>
+                        </div>
+
+                        <div class="fact">
+                            <strong>Career Goal</strong>
+                            <small>Cloud Engineer</small>
+                        </div>
+
+                        <div class="fact">
+                            <strong>My Approach</strong>
+                            <small>Learn by building</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h3>☁️ My Focus</h3>
+
+                    <p>
+                        Building a strong foundation in AWS and Linux,
+                        practising deployment, and gradually expanding
+                        into scripting, containers, APIs, and cloud
+                        automation.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TECHNICAL SKILLS -->
+
+        <section id="skills">
+            <div class="container">
+
+                <h2 class="section-title">
+                    Technical <span>Skills</span>
+                </h2>
+
+                <div class="skills-grid">
+
+                    <article class="skill-card">
+                        <div class="skill-icon">☁️</div>
+                        <h3>AWS Services</h3>
+                        <p>
+                            IAM, EC2, S3, VPC, CloudWatch,
+                            Elastic Load Balancing
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">⚙️</div>
+                        <h3>AWS Components</h3>
+                        <p>
+                            AMI, Security Groups,
+                            Auto Scaling Groups
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🐧</div>
+                        <h3>Operating Systems</h3>
+                        <p>
+                            Linux, Ubuntu, Amazon Linux
+                            (Familiar with)
+                        </p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🌐</div>
+                        <h3>Web Server</h3>
+                        <p>Nginx</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🐍</div>
+                        <h3>Programming</h3>
+                        <p>Python</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">📦</div>
+                        <h3>Python Library</h3>
+                        <p>psutil</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🔀</div>
+                        <h3>Version Control</h3>
+                        <p>Git and GitHub</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🛠️</div>
+                        <h3>Tools</h3>
+                        <p>VS Code, Microsoft Excel (Basic)</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">🧩</div>
+                        <h3>Web Technologies</h3>
+                        <p>HTML and CSS (Basic familiarity)</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CURRENTLY LEARNING -->
+
+        <section id="learning">
+            <div class="container">
+
+                <h2 class="section-title">
+                    Currently <span>Learning</span>
+                </h2>
+
+                <div class="learning-grid">
+
+                    <article class="learning-card">
+                        <div class="skill-icon">🐍</div>
+                        <h3>Python Automation</h3>
+                        <p>Automating tasks with Python scripts.</p>
+                    </article>
+
+                    <article class="learning-card">
+                        <div class="skill-icon">⌨️</div>
+                        <h3>Bash Scripting</h3>
+                        <p>Shell scripting for Linux and AWS workflows.</p>
+                    </article>
+
+                    <article class="learning-card">
+                        <div class="skill-icon">🐳</div>
+                        <h3>Docker</h3>
+                        <p>Learning containers and practical use cases.</p>
+                    </article>
+
+                    <article class="learning-card">
+                        <div class="skill-icon">🔌</div>
+                        <h3>APIs</h3>
+                        <p>Understanding API fundamentals and integrations.</p>
+                    </article>
+
+                    <article class="learning-card">
+                        <div class="skill-icon">☁️</div>
+                        <h3>AWS Services</h3>
+                        <p>Deepening AWS knowledge through practice.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+
+        <section id="projects">
+            <div class="container">
+
+                <h2 class="section-title">
+                    My <span>Projects</span>
+                </h2>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <div class="skill-icon">🌐</div>
+
+                        <h3>Personal Portfolio Website</h3>
+
+                        <p>
+                            A single-page portfolio built with HTML
+                            and CSS, planned for deployment on AWS EC2
+                            using Nginx.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">EC2</span>
+                            <span class="tag">Nginx</span>
+                            <span class="tag">Linux</span>
+                        </div>
+
+                        <span class="project-link">
+                            Deployment: In Progress
+                        </span>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="skill-icon">🐍</div>
+
+                        <h3>Python System Monitoring</h3>
+
+                        <p>
+                            A Python project using psutil.
+                            Visit my GitHub profile to find the
+                            repository and explore the implementation.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">psutil</span>
+                            <span class="tag">Monitoring</span>
+                        </div>
+
+                        <a class="project-link"
+                           href="https://github.com/sksingh001-git"
+                           target="_blank" rel="noopener noreferrer">
+                            View GitHub Profile ↗
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="skill-icon">🔗</div>
+
+                        <h3>GitHub Repositories</h3>
+
+                        <p>
+                            Explore my code, learning projects,
+                            and practical experiments as I develop
+                            my cloud engineering skills.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                            <span class="tag">Python</span>
+                        </div>
+
+                        <a class="project-link"
+                           href="https://github.com/sksingh001-git"
+                           target="_blank" rel="noopener noreferrer">
+                            Visit GitHub ↗
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+
+        <section id="contact">
+            <div class="container">
+
+                <h2 class="section-title">
+                    Get In <span>Touch</span>
+                </h2>
+
+                <div class="contact-box">
+
+                    <div>
+                        <h3>Let's connect.</h3>
+
+                        <p>
+                            I'm focused on learning, building practical
+                            projects, and growing toward a career in
+                            cloud engineering.
+                        </p>
+                    </div>
+
+                    <div class="contact-links">
+                        <p>
+                            ✉️
+                            <a href="mailto:skkaushalendra911@gmail.com">
+                                skkaushalendra911@gmail.com
+                            </a>
+                        </p>
+
+                        <p>
+                            💼
+                            <a href="https://www.linkedin.com/in/kaushalendra-singh-600680360/"
+                               target="_blank" rel="noopener noreferrer">
+                                LinkedIn Profile ↗
+                            </a>
+                        </p>
+
+                        <p>
+                            💻
+                            <a href="https://github.com/sksingh001-git"
+                               target="_blank" rel="noopener noreferrer">
+                                github.com/sksingh001-git ↗
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="container footer-content">
+            <p>© 2026 Kaushalendra Singh</p>
+            <p><span>Build · Learn · Grow</span></p>
+        </div>
+    </footer>
+
+</body>
+</html>
